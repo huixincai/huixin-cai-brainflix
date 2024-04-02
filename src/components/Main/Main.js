@@ -12,10 +12,12 @@ const Main = ({
   onVideoSelect,
 }) => {
   return (
-    <main>
+    <main className="main">
       <Video videoDetails={videoDetails}/>
-      <VideoDetails videoDetails={videoDetails}/>
-      <NextVideos videoList={videoList} onVideoSelect={onVideoSelect} />
+      <div className="main__wrapper">
+        <VideoDetails videoDetails={videoDetails}/>
+        <NextVideos videoList={videoList} onVideoSelect={onVideoSelect} />
+      </div>
     </main>
   );
 };

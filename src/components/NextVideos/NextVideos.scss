@@ -1,0 +1,43 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.next-videos {
+  @include desktop {
+    width: 33.3%;
+    align-self: flex-start;
+    padding: 1.5rem 1.5rem;
+  }
+
+  &__title {
+    color: $silver;
+    padding-bottom: 1rem;
+  }
+
+  &__video {
+    display: flex;
+    margin-top: 1rem;
+    cursor: pointer;
+
+    &-img {
+      width: 6.5rem;
+      height: 4rem;
+      border-radius: 4px;
+      object-fit: cover;
+      background-color: $mercury;
+      margin-right: 1rem;
+    }
+    &-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.25rem 0;
+    }
+    &-title {
+      font-weight: 700;
+      font-size: 0.813rem;
+      line-height: 18px;
+      padding-bottom: 0.5rem;
+    }
+  }
+}

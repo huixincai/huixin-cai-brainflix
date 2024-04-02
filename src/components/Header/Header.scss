@@ -1,0 +1,90 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+
+  @include tablet {
+    flex-direction: row;
+    padding: 1rem 2rem;
+  }
+  @include desktop {
+    padding: 1rem 8rem;
+  }
+
+  &__menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    @include tablet {
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+    @include desktop {
+      gap: 2rem;
+      padding-right: 1rem;
+    }
+
+    &-search {
+      padding: 0.5rem 0.5rem 0.5rem 2rem;
+      background-image: url("../../assets/icons/search.svg");
+      background-repeat: no-repeat;
+      background-position: left;
+      background-position-x: 0.5rem;
+      border-radius: 4px;
+      background-color: $alabaster;
+      border: 2px solid $mercury;
+      height: 2.25rem;
+      order: 1;
+      width: 80%;
+      @include tablet {
+        width: auto;
+      }
+    }
+    :active {
+      border: 2px solid $blue;
+    }
+    :invalid {
+      border: 1px solid #d22d2d;
+    }
+
+    &-avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+      order: 2;
+      @include tablet {
+        order: 4;
+      }
+    }
+
+    &-upload-button {
+      margin-top: 1rem;
+      background-color: $blue;
+      color: $white;
+      height: 2.5rem;
+      width: 100%;
+      border-radius: 4px;
+      border: none;
+      background-image: url("../../assets/icons/upload.svg");
+      background-repeat: no-repeat;
+      background-position-y: center;
+      background-position-x: 0.5rem;
+      cursor: pointer;
+      order: 3;
+      &:hover {
+        background-color: $darkblue;
+      }
+      @include tablet {
+        margin-top: 0;
+      }
+    }
+  }
+}

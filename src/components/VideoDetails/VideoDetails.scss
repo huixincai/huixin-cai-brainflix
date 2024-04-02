@@ -1,0 +1,218 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.video-details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @include desktop {
+    width: 66.7%;
+    padding: 0 0 0 3rem;
+    border-right: 1px solid $mercury;
+  }
+
+  &__title {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+
+    @include tablet {
+      padding-top: 2.25rem;
+      padding-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-top: 1px solid $mercury;
+    border-bottom: 1px solid $mercury;
+    font-weight: 400;
+    font-size: 0.813rem;
+
+    @include tablet {
+      border-top: none;
+      font-size: 0.875rem;
+    }
+
+    &-container {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+
+      @include tablet {
+        flex-direction: row;
+      }
+    }
+
+    &-channel {
+      font-weight: 700;
+    }
+
+    &-timestamp {
+      color: $silver;
+    }
+
+    &-views,
+    &-likes {
+      display: flex;
+      align-items: flex-start;
+      padding-right: 1rem;
+      color: $silver;
+      img {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  &__description {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    @include desktop {
+      padding-right: 1rem;
+    }
+  }
+
+  &__comments {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    &-add {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid $mercury;
+
+      &-img {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 1rem;
+        margin-top: 1rem;
+      }
+
+      &-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        label {
+          color: $silver;
+        }
+
+        @include desktop {
+          padding-right: 1rem;
+        }
+
+        &-container {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 1rem;
+          }
+        }
+
+        &-comment {
+          height: 6rem;
+          width: 100%;
+          background-color: $alabaster;
+          border-radius: 4px;
+          border: 2px solid $mercury;
+          padding: 0.5rem;
+          margin-bottom: 1rem;
+          resize: none;
+          box-sizing: border-box;
+          overflow: hidden;
+          font-family: "Avenir Next";
+          color: $darkblack;
+          opacity: 1;
+          :active {
+            border: 2px solid $blue;
+          }
+          :invalid {
+            border: 1px solid #d22d2d;
+          }
+          @include tablet {
+            height: 2.5rem;
+          }
+        }
+        &-button {
+          background-color: $blue;
+          color: $white;
+          height: 2.5rem;
+          width: 100%;
+          border-radius: 4px;
+          border: none;
+          background-image: url("../../assets/icons/add_comment.svg");
+          background-repeat: no-repeat;
+          background-position-y: center;
+          background-position-x: 0.5rem;
+          cursor: pointer;
+          &:hover {
+            background-color: $darkblue;
+          }
+        }
+      }
+    }
+  }
+
+  &__comment {
+    padding: 1rem 0;
+    border-bottom: 1px solid $mercury;
+    display: flex;
+
+    @include desktop {
+      padding-right: 1rem;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &-avatar-img {
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: $mercury;
+    }
+    &-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+    }
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 1rem;
+      gap: 1rem;
+    }
+    &-name {
+      font-weight: 700;
+      color: $black;
+    }
+    &-timestamp {
+      color: $silver;
+    }
+    &-message {
+      font-weight: 400;
+    }
+  }
+}

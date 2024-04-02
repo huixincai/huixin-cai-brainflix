@@ -3,8 +3,8 @@ import "./NextVideos.scss";
 
 const NextVideos = ({ videoList, onVideoSelect }) => {
   return (
-    <div className="next-videos">
-      <h2 className="next-videos__title">Next Videos</h2>
+    <section className="next-videos">
+      <h2 className="next-videos__title section-header">Next Videos</h2>
       <div className="next-videos__list">
         {videoList.map((video) => (
           <div
@@ -12,7 +12,9 @@ const NextVideos = ({ videoList, onVideoSelect }) => {
             className="next-videos__video"
             onClick={() => onVideoSelect(video.id)}
           >
-            <img src={video.image} alt={video.title} />
+            <div className="next-videos__video-img-wrapper">
+              <img className="next-videos__video-img" src={video.image} alt={video.title} />
+            </div>
             <div className="next-videos__video-details">
               <h3 className="next-videos__video-title">{video.title}</h3>
               <p className="next-videos__video-channel">{video.channel}</p>
@@ -20,7 +22,7 @@ const NextVideos = ({ videoList, onVideoSelect }) => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

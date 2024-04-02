@@ -1,0 +1,13 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.main {
+  &__wrapper {
+    @include desktop {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      padding: 0 5rem;
+    }
+  }
+}

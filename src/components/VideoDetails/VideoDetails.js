@@ -1,45 +1,110 @@
 import React from "react";
+
+import likesIcon from "../../assets/icons/likes.svg";
+import viewsIcon from "../../assets/icons/views.svg";
+import userAvatar from "../../assets/images/Mohan-muruge.jpg";
+
 import "./VideoDetails.scss";
 
+function timestampToMMDDYYYY(timestamp) {
+  const date = new Date(timestamp);
+  const month = date.getMonth();
+  const day = date.getDate();
+  const year = date.getFullYear();
+
+  return `${month}/${day}/${year}`;
+}
+
 const VideoDetails = ({ videoDetails }) => {
-  const {
-    title,
-    channel,
-    timestamp,
-    views,
-    likes,
-    description,
-    comments,
-  } = videoDetails;
+  const { title, channel, timestamp, views, likes, description, comments } =
+    videoDetails;
 
   return (
-    <div className="video-details">
+    <section className="video-details">
       <div className="video-details__title">{title}</div>
-      <div className="video-details__info">
-        <div className="video-details__info-channel">{channel}</div>
-        <div className="video-details__info-timestamp">{timestamp}</div>
-        <div className="video-details__info-views">{views}</div>
-        <div className="video-details__info-likes">{likes}</div>
+
+      <div className="video-details__info body-copy">
+        <div className="video-details__info-container">
+          <div className="video-details__info-channel">By {channel}</div>
+          <div className="video-details__info-timestamp">
+            {timestampToMMDDYYYY(timestamp)}
+          </div>
+        </div>
+        <div className="video-details__info-container">
+          <div className="video-details__info-views">
+            <img
+              src={viewsIcon}
+              alt="Views icon"
+              className="video-details__info-icon"
+            />
+            {views}
+          </div>
+          <div className="video-details__info-likes">
+            <img
+              src={likesIcon}
+              alt="Likes icon"
+              className="video-details__info-icon"
+            />
+            {likes}
+          </div>
+        </div>
       </div>
-      <div className="video-details__description">{description}</div>
+
+      <div className="video-details__description body-copy">{description}</div>
+
       <div className="video-details__comments">
-        <div className="video-details__comments-count">
+        <div className="video-details__comments-count section-header">
           {comments.length} Comments
         </div>
-        <div className="video-details__comments-add">Add a public comment</div>
-        {comments.map((comment) => (
-          <div className="video-details__comment" key={comment.id}>
-            <div className="video-details__comment-user">{comment.user}</div>
-            <div className="video-details__comment-timestamp">
-              {comment.timestamp}
+        <div className="video-details__comments-add">
+          <img
+            className="video-details__comments-add-img"
+            src={userAvatar}
+            alt="User avatar"
+          />
+          <form className="video-details__comments-add-form">
+            <label
+              className="video-details__comments-add-form-header section-header"
+              htmlFor="comment-field"
+            >
+              JOIN THE CONVERSATION
+            </label>
+            <div className="video-details__comments-add-form-container">
+              <textarea
+                required=""
+                className="video-details__comments-add-form-comment body-copy"
+                id="comment-field"
+                name="comment"
+                placeholder="Add a new comment"
+              ></textarea>
+              <button className="video-details__comments-add-form-button">
+                COMMENT
+              </button>
             </div>
-            <div className="video-details__comment-message">
-              {comment.message}
+          </form>
+        </div>
+        {comments.map((comment) => (
+          <div className="video-details__comment body-copy" key={comment.id}>
+            <div className="video-details__comment-avatar">
+              <div className="video-details__comment-avatar-img"></div>
+            </div>
+            <div className="video-details__comment-container">
+              <div className="video-details__comment-header">
+                <div className="video-details__comment-name">
+                  {comment.name}
+                </div>
+                <div className="video-details__comment-timestamp">
+                  {timestampToMMDDYYYY(comment.timestamp)}
+                </div>
+              </div>
+              <div className="video-details__comment-message">
+                {comment.comment}
+              </div>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

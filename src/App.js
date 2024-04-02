@@ -8,13 +8,15 @@ import videoDetailsList from "./data/video-details.json";
 
 import "./App.scss";
 
+const defaultVideo = videoDetailsList[0];
+
 function App() {
-  const [videoList, setVideoList] = useState(videos);
-  const [videoDetails, setVideoDetails] = useState(videoDetailsList[0]);
+  const [videoList, setVideoList] = useState(videos.filter((video) => video.id !== defaultVideo.id));
+  const [videoDetails, setVideoDetails] = useState(defaultVideo);
 
   const onVideoSelect = (videoId) => {
     const selectedVideo = videoDetailsList.find((video) => video.id === videoId);
-    const filteredVideos = videoList.filter((video) => video.id !== videoId);
+    const filteredVideos = videos.filter((video) => video.id !== videoId);
     setVideoDetails({ ...selectedVideo });
     setVideoList([...filteredVideos]);
   };
