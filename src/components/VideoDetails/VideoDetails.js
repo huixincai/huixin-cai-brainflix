@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 import likesIcon from "../../assets/icons/likes.svg";
 import viewsIcon from "../../assets/icons/views.svg";
@@ -8,11 +9,7 @@ import "./VideoDetails.scss";
 
 function timestampToMMDDYYYY(timestamp) {
   const date = new Date(timestamp);
-  const month = date.getMonth();
-  const day = date.getDate();
-  const year = date.getFullYear();
-
-  return `${month}/${day}/${year}`;
+  return moment(date).fromNow();
 }
 
 const VideoDetails = ({ videoDetails }) => {
