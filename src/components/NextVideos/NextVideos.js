@@ -4,7 +4,7 @@ import "./NextVideos.scss";
 const NextVideos = ({ videoList, onVideoSelect }) => {
   return (
     <section className="next-videos">
-      <h2 className="next-videos__title section-header">Next Videos</h2>
+      <h2 className="next-videos__title section-header">NEXT VIDEOS</h2>
       <div className="next-videos__list">
         {videoList.map((video) => (
           <div

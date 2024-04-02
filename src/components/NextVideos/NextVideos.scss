@@ -2,10 +2,13 @@
 @use "../../styles/partials/colors" as *;
 
 .next-videos {
+  @include tablet {
+    width: 50%;
+  }
   @include desktop {
     width: 33.3%;
     align-self: flex-start;
-    padding: 1.5rem 1.5rem;
+    padding: 1.5rem 3rem 1.5rem 1.5rem;
   }
 
   &__title {
@@ -38,6 +41,12 @@
       font-size: 0.813rem;
       line-height: 18px;
       padding-bottom: 0.5rem;
+    }
+    &-channel {
+      font-size: 0.813rem;
+      @include tablet {
+        font-weight: 600;
+      }
     }
   }
 }

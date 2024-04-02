@@ -29,6 +29,7 @@
     display: flex;
     justify-content: space-between;
     padding-bottom: 1rem;
+    padding-top: 1rem;
     border-top: 1px solid $mercury;
     border-bottom: 1px solid $mercury;
     font-weight: 400;
@@ -37,6 +38,7 @@
     @include tablet {
       border-top: none;
       font-size: 0.875rem;
+      padding-top: 0;
     }
 
     &-container {
@@ -63,10 +65,17 @@
     &-likes {
       display: flex;
       align-items: flex-start;
-      padding-right: 1rem;
+      padding-right: 3rem;
       color: $silver;
       img {
         margin-right: 0.5rem;
+      }
+      @include tablet {
+        padding-right: 0;
+        padding-left: 1rem;
+      }
+      @include desktop {
+        padding-right: 1rem;
       }
     }
   }
@@ -146,6 +155,10 @@
           }
           :invalid {
             border: 1px solid #d22d2d;
+          }
+          &::placeholder {
+            color: $black;
+            font-weight: 600;
           }
           @include tablet {
             height: 2.5rem;
