@@ -1,12 +1,12 @@
 import React from "react";
 import "./NextVideos.scss";
 
-const NextVideos = ({ videoList, onVideoSelect }) => {
+const NextVideos = ({ nextVideos, onVideoSelect }) => {
   return (
     <section className="next-videos">
       <h2 className="next-videos__title section-header">NEXT VIDEOS</h2>
       <div className="next-videos__list">
-        {videoList.map((video) => (
+        {nextVideos.map((video) => (
           <div
             key={video.id}
             className="next-videos__video"

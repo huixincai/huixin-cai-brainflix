@@ -148,16 +148,16 @@
           box-sizing: border-box;
           overflow: hidden;
           font-family: "Avenir Next";
-          color: $darkblack;
+          color: $brainflix-darkblack;
           opacity: 1;
           :active {
-            border: 2px solid $blue;
+            border: 2px solid $brainflix-blue;
           }
           :invalid {
-            border: 1px solid #d22d2d;
+            border: 1px solid $error-red;
           }
           &::placeholder {
-            color: $black;
+            color: $brainflix-black;
             font-weight: 600;
           }
           @include tablet {
@@ -165,7 +165,7 @@
           }
         }
         &-button {
-          background-color: $blue;
+          background-color: $brainflix-blue;
           color: $white;
           height: 2.5rem;
           width: 100%;
@@ -177,7 +177,7 @@
           background-position-x: 0.5rem;
           cursor: pointer;
           &:hover {
-            background-color: $darkblue;
+            background-color: $brainflix-darkblue;
           }
         }
       }
@@ -219,7 +219,7 @@
     }
     &-name {
       font-weight: 700;
-      color: $black;
+      color: $brainflix-black;
     }
     &-timestamp {
       color: $silver;

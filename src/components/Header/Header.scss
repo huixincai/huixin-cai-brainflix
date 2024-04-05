@@ -48,10 +48,10 @@
       }
     }
     :active {
-      border: 2px solid $blue;
+      border: 2px solid $brainflix-blue;
     }
     :invalid {
-      border: 1px solid #d22d2d;
+      border: 1px solid $error-red;
     }
 
     &-avatar {
@@ -67,7 +67,7 @@
 
     &-upload-button {
       margin-top: 1rem;
-      background-color: $blue;
+      background-color: $brainflix-blue;
       color: $white;
       height: 2.5rem;
       width: 100%;
@@ -80,7 +80,7 @@
       cursor: pointer;
       order: 3;
       &:hover {
-        background-color: $darkblue;
+        background-color: $brainflix-darkblue;
       }
       @include tablet {
         margin-top: 0;

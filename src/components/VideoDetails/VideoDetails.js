@@ -1,16 +1,12 @@
 import React from "react";
-import moment from "moment";
 
 import likesIcon from "../../assets/icons/likes.svg";
 import viewsIcon from "../../assets/icons/views.svg";
 import userAvatar from "../../assets/images/Mohan-muruge.jpg";
 
-import "./VideoDetails.scss";
+import { timestampToMMDDYYYY } from "../../utils/datetime";
 
-function timestampToMMDDYYYY(timestamp) {
-  const date = new Date(timestamp);
-  return moment(date).fromNow();
-}
+import "./VideoDetails.scss";
 
 const VideoDetails = ({ videoDetails }) => {
   const { title, channel, timestamp, views, likes, description, comments } =

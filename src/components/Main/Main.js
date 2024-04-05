@@ -7,7 +7,7 @@ import NextVideos from "../NextVideos/NextVideos";
 import "./Main.scss";
 
 const Main = ({
-  videoList,
+  nextVideos,
   videoDetails,
   onVideoSelect,
 }) => {
@@ -16,7 +16,7 @@ const Main = ({
       <Video videoDetails={videoDetails}/>
       <div className="main__wrapper">
         <VideoDetails videoDetails={videoDetails}/>
-        <NextVideos videoList={videoList} onVideoSelect={onVideoSelect} />
+        <NextVideos nextVideos={nextVideos} onVideoSelect={onVideoSelect} />
       </div>
     </main>
   );
