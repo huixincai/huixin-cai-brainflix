@@ -9,6 +9,10 @@ import { timestampToMMDDYYYY } from "../../utils/datetime";
 import "./VideoDetails.scss";
 
 const VideoDetails = ({ videoDetails }) => {
+  if (!videoDetails) {
+    return <div>Loading...</div>;
+  }
+
   const { title, channel, timestamp, views, likes, description, comments } =
     videoDetails;
 
