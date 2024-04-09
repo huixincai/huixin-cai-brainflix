@@ -23,8 +23,6 @@
       display: flex;
       flex-direction: column;
       padding-bottom: 1rem;
-      border-top: solid 1px $mercury;
-      border-bottom: solid 1px $mercury;
 
       label {
         color: $silver;
@@ -33,6 +31,8 @@
 
       @include tablet {
         padding-bottom: 1.5rem;
+        border-top: solid 1px $mercury;
+        border-bottom: solid 1px $mercury;
       }
 
       @include desktop {
