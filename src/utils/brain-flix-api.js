@@ -65,4 +65,6 @@ class BrainFlixApi {
   }
 };
 
-export default new BrainFlixApi(API_URL, API_KEY);
+const brainFlixApi = new BrainFlixApi(API_URL, API_KEY);
+
+export default brainFlixApi;

@@ -15,7 +15,9 @@ const Header = () => {
       <div className="header__menu">
         <input className="header__menu-search" type="text" placeholder="Search"/>
         <img className="header__menu-avatar" src={userAvatar} alt="User avatar" />
-        <button className="header__menu-upload-button">UPLOAD</button>
+        <Link to="/upload" className="header__menu-upload-link">
+          <button className="header__menu-upload-button">UPLOAD</button>
+        </Link>
       </div>
     </header>
   );

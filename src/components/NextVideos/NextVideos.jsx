@@ -13,7 +13,6 @@ const NextVideos = ({ nextVideos }) => {
             key={video.id}
             to={`/videos/${video.id}`}
             className="next-videos__video"
-            // onClick={() => onVideoSelect(video.id)}
           >
             <div className="next-videos__video-img-wrapper">
               <img className="next-videos__video-img" src={video.image} alt={video.title} />

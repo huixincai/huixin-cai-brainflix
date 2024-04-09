@@ -1,10 +1,7 @@
 import React from "react";
 import "./Video.scss";
 
-const Video = ({ videoDetails }) => {
-  if (!videoDetails) {
-    return <div>Loading...</div>;
-  }
+const Video = ({ videoDetails = {} }) => {
   const { image } = videoDetails;
   return (
     <section className="video">

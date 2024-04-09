@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import likesIcon from "../../assets/icons/likes.svg";
 import viewsIcon from "../../assets/icons/views.svg";
@@ -8,13 +8,21 @@ import { timestampToMMDDYYYY } from "../../utils/datetime";
 
 import "./VideoDetails.scss";
 
-const VideoDetails = ({ videoDetails }) => {
-  if (!videoDetails) {
-    return <div>Loading...</div>;
-  }
-
-  const { title, channel, timestamp, views, likes, description, comments } =
+const VideoDetails = ({ videoDetails = {} }) => {
+  const { title, channel, timestamp, views, likes, description, comments = [] } =
     videoDetails;
+  
+  const [comment, setComment] = useState("");
+
+  const handleCommentChange = (event) => {
+    const newComment = event.target.value;
+    setComment(newComment);
+    if (newComment.trim() === "") {
+      event.target.classList.add("video-details__comments-add-form-comment--error");
+    } else {
+      event.target.classList.remove("video-details__comments-add-form-comment--error");
+    }
+  }
 
   return (
     <section className="video-details">
@@ -73,6 +81,8 @@ const VideoDetails = ({ videoDetails }) => {
                 id="comment-field"
                 name="comment"
                 placeholder="Add a new comment"
+                value={comment}
+                onChange={handleCommentChange}
               ></textarea>
               <button className="video-details__comments-add-form-button">
                 COMMENT
@@ -80,22 +90,22 @@ const VideoDetails = ({ videoDetails }) => {
             </div>
           </form>
         </div>
-        {comments.map((comment) => (
-          <div className="video-details__comment body-copy" key={comment.id}>
+        {comments.map((commentDetails) => (
+          <div className="video-details__comment body-copy" key={commentDetails.id}>
             <div className="video-details__comment-avatar">
               <div className="video-details__comment-avatar-img"></div>
             </div>
             <div className="video-details__comment-container">
               <div className="video-details__comment-header">
                 <div className="video-details__comment-name">
-                  {comment.name}
+                  {commentDetails.name}
                 </div>
                 <div className="video-details__comment-timestamp">
-                  {timestampToMMDDYYYY(comment.timestamp)}
+                  {timestampToMMDDYYYY(commentDetails.timestamp)}
                 </div>
               </div>
               <div className="video-details__comment-message">
-                {comment.comment}
+                {commentDetails.comment}
               </div>
             </div>
           </div>
