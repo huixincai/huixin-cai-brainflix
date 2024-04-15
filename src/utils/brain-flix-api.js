@@ -58,9 +58,30 @@ class BrainFlixApi {
         const { status, data } = error.response;
         if ((status === 400 || status === 404) && data?.message) {
           alert(data.message);
+          return;
         }
       }
-      return {};
+      alert('An error occurred while uploading the video');
+    }
+  }
+
+  async addVideo(payload) {
+    try {
+      const response = await axios.post(`${this.baseUrl}/videos`, payload, {
+        params: {
+          api_key: this.apiKey,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      if (error.response) {
+        const { status, data } = error.response;
+        if ((status === 400 || status === 404) && data?.message) {
+          alert(data.message);
+          return;
+        }
+      }
+      alert('An error occurred while uploading the video');
     }
   }
 };
