@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import brainFlixApi from "../../utils/brain-flix-api";
+
 import "./VideoUpload.scss";
+
+const IMAGE_SRC = "http://localhost:8080/images/Upload-video-preview.jpg";
 
 const VideoUpload = () => {
   const [title, setTitle] = useState("");
@@ -24,9 +28,23 @@ const VideoUpload = () => {
     setShowDescriptionError(newDescription.trim() === "");
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (title.trim() === "" || description.trim() === "") {
+      setShowTitleError(title.trim() === "");
+      setShowDescriptionError(description.trim() === "");
+      return;
+    }
+
+    await brainFlixApi.addVideo({
+      title,
+      description,
+      image: IMAGE_SRC,
+    });
+
     alert("Video uploaded!");
+
     navigate("/");
   };
 
@@ -40,7 +58,7 @@ const VideoUpload = () => {
               VIDEO THUMBNAIL
             </label>
             <img
-              src="http://localhost:8080/images/Upload-video-preview.jpg"
+              src={IMAGE_SRC}
               alt="video upload thumbnail"
               className="upload__form-thumbnail-img"
             />
