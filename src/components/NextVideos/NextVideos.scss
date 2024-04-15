@@ -46,9 +46,6 @@
     }
     &-channel {
       font-size: 0.813rem;
-      @include tablet {
-        font-weight: 600;
-      }
     }
   }
 }

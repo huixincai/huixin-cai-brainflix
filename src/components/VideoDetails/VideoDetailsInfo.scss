@@ -1,0 +1,62 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.video-details__info {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid $dividerLineColor;
+  border-bottom: 1px solid $dividerLineColor;
+  font-weight: 400;
+  font-size: 0.813rem;
+
+  @include tablet {
+    border-top: none;
+    font-size: 0.875rem;
+    padding-top: 0;
+  }
+
+  &-container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &-channel {
+    font-weight: 700;
+  }
+
+  &-timestamp {
+    color: $secondaryTextColor;
+  }
+
+  &-views,
+  &-likes {
+    display: flex;
+    align-items: flex-start;
+    padding-right: 3rem;
+    color: $secondaryTextColor;
+    img {
+      margin-right: 0.5rem;
+    }
+    @include tablet {
+      padding-right: 0;
+      padding-left: 1rem;
+      align-items: normal;
+    }
+    @include desktop {
+      padding-right: 1rem;
+    }
+  }
+
+  &-likes {
+    cursor: pointer;
+  }
+}

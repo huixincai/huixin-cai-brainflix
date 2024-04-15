@@ -12,13 +12,6 @@ const VideoCommentForm = ({ videoId }) => {
 
   const handleCommentSubmit = (event) => {
     event.preventDefault();
-    if (comment.trim() === "") {
-      setShowCommentError(true);
-      return;
-    }
-
-    alert(`Comment submitted for video ${videoId}: ${comment}`);
-    setComment("");
   };
 
   return (

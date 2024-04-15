@@ -35,6 +35,15 @@ function MainVideoPage() {
     }
   }, [videoIdToLoad]);
 
+  const handleVideoLike = async (event) => {
+    event.preventDefault();
+
+    const updatedVideo = await brainFlixApi.likeVideo(videoDetails.id);
+    if (updatedVideo) {
+      setVideoDetails(updatedVideo);
+    }
+  };
+
   if (isFetching) {
     return <p>... Loading your video data ...</p>;
   }
@@ -42,7 +51,11 @@ function MainVideoPage() {
   return (
     <>
       <Header />
-      <Main videoDetails={videoDetails} nextVideos={nextVideos} />
+      <Main
+        videoDetails={videoDetails}
+        nextVideos={nextVideos}
+        handleVideoLike={handleVideoLike}
+      />
     </>
   );
 }

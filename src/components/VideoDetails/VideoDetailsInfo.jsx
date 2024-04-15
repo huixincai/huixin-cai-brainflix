@@ -2,10 +2,11 @@ import React from "react";
 
 import likesIcon from "../../assets/icons/likes.svg";
 import viewsIcon from "../../assets/icons/views.svg";
-
 import { timestampToMMDDYYYY } from "../../utils/datetime";
 
-const VideoDetailsInfo = ({ videoDetails }) => {
+import "./VideoDetailsInfo.scss";
+
+const VideoDetailsInfo = ({ videoDetails, handleVideoLike }) => {
   const { channel, timestamp, views, likes } = videoDetails;
 
   return (
@@ -25,7 +26,7 @@ const VideoDetailsInfo = ({ videoDetails }) => {
           />
           {views}
         </div>
-        <div className="video-details__info-likes">
+        <div className="video-details__info-likes" onClick={handleVideoLike}>
           <img
             src={likesIcon}
             alt="Likes icon"

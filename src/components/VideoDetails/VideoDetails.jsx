@@ -5,14 +5,17 @@ import VideoComments from "../VideoComments/VideoComments";
 
 import "./VideoDetails.scss";
 
-const VideoDetails = ({ videoDetails }) => {
+const VideoDetails = ({ videoDetails, handleVideoLike }) => {
   const { id, title, description, comments = [] } = videoDetails;
 
   return (
     <section className="video-details">
       <div className="video-details__title">{title}</div>
 
-      <VideoDetailsInfo videoDetails={videoDetails} />
+      <VideoDetailsInfo
+        videoDetails={videoDetails}
+        handleVideoLike={handleVideoLike}
+      />
 
       <div className="video-details__description body-copy">{description}</div>
 
