@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import "./NextVideos.scss";
 
@@ -15,7 +15,11 @@ const NextVideos = ({ nextVideos }) => {
             className="next-videos__video"
           >
             <div className="next-videos__video-img-wrapper">
-              <img className="next-videos__video-img" src={video.image} alt={video.title} />
+              <img
+                className="next-videos__video-img"
+                src={video.image}
+                alt={video.title}
+              />
             </div>
             <div className="next-videos__video-details">
               <h3 className="next-videos__video-title">{video.title}</h3>

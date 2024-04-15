@@ -1,34 +1,27 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import thumbnail from "../../assets/images/Upload-video-preview.jpg";
-
 import "./VideoUpload.scss";
 
 const VideoUpload = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+  const [showTitleError, setShowTitleError] = useState(false);
+  const [showDescriptionError, setShowDescriptionError] = useState(false);
+
   const navigate = useNavigate();
 
   const handleTitleChange = (event) => {
     const newTitle = event.target.value;
     setTitle(newTitle);
-    if (newTitle.trim() === "") {
-      event.target.classList.add("upload__form-upload-input--error");
-    } else {
-      event.target.classList.remove("upload__form-upload-input--error");
-    }
+    setShowTitleError(newTitle.trim() === "");
   };
 
   const handleDescriptionChange = (event) => {
     const newDescription = event.target.value;
     setDescription(newDescription);
-    if (newDescription.trim() === "") {
-      event.target.classList.add("upload__form-upload-input--error");
-    } else {
-      event.target.classList.remove("upload__form-upload-input--error");
-    }
+    setShowDescriptionError(newDescription.trim() === "");
   };
 
   const handleSubmit = (event) => {
@@ -47,7 +40,7 @@ const VideoUpload = () => {
               VIDEO THUMBNAIL
             </label>
             <img
-              src={thumbnail}
+              src="http://localhost:8080/images/Upload-video-preview.jpg"
               alt="video upload thumbnail"
               className="upload__form-thumbnail-img"
             />
@@ -60,7 +53,9 @@ const VideoUpload = () => {
               TITLE YOUR VIDEO
             </label>
             <input
-              className="upload__form-upload-input"
+              className={`upload__form-upload-input ${
+                showTitleError ? "upload__form-upload-input--error" : ""
+              }`}
               type="text"
               id="title"
               name="title"
@@ -75,7 +70,9 @@ const VideoUpload = () => {
               ADD A VIDEO DESCRIPTION
             </label>
             <textarea
-              className="upload__form-upload-input upload__form-upload-input--textarea"
+              className={`upload__form-upload-input upload__form-upload-input--textarea ${
+                showDescriptionError ? "upload__form-upload-input--error" : ""
+              }`}
               id="description"
               name="description"
               placeholder="Add a description to your video"

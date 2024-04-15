@@ -25,14 +25,14 @@
       padding-bottom: 1rem;
 
       label {
-        color: $silver;
+        color: $secondaryTextColor;
         padding-top: 1rem;
       }
 
       @include tablet {
         padding-bottom: 1.5rem;
-        border-top: solid 1px $mercury;
-        border-bottom: solid 1px $mercury;
+        border-top: 1px solid $dividerLineColor;
+        border-bottom: 1px solid $dividerLineColor;
       }
 
       @include desktop {
@@ -69,24 +69,24 @@
 
       &-input {
         padding: 0.75rem;
-        border: 2px solid $mercury;
+        border: 2px solid $formFieldOutlineColor;
         border-radius: 4px;
         font-size: 1rem;
-        background-color: $inputBackgroundColor;
+        background-color: $formFieldBackgroundColor;
 
         &::placeholder {
-          color: $brainflix-black;
+          color: $primaryTextColor;
           font-family: Avenir Next;
           font-weight: 600;
         }
 
         &:focus {
           outline: none !important;
-          border: 2px solid $brainflix-blue;
+          border: 2px solid $activeFormFieldOutlineColor;
         }
 
         &--error {
-          border-color: $error-red;
+          border: 1px solid $errorFormFieldOutlineColor;
         }
 
         &--textarea {
@@ -121,12 +121,12 @@
       cursor: pointer;
 
       &--publish {
-        color: $white;
-        background-color: $brainflix-blue;
+        color: $CTATextColor;
+        background-color: $primaryCTAColor;
         background-image: url("../../assets/icons/upload.svg");
 
         &:hover {
-          background-color: $brainflix-darkblue;
+          background-color: $CTAHoverColor;
         }
 
         @include tablet {
@@ -135,8 +135,8 @@
       }
 
       &--cancel {
-        color: $brainflix-blue;
-        background-color: $white;
+        color: $primaryCTAColor;
+        background-color: $backgroundColor;
       }
     }
   }

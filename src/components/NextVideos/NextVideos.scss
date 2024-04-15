@@ -12,7 +12,7 @@
   }
 
   &__title {
-    color: $silver;
+    color: $secondaryTextColor;
     padding-bottom: 1rem;
   }
 
@@ -28,7 +28,7 @@
       height: 4rem;
       border-radius: 4px;
       object-fit: cover;
-      background-color: $mercury;
+      background-color: $imagePlaceholderColor;
       margin-right: 1rem;
     }
     &-details {

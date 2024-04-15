@@ -10,7 +10,11 @@ import "./MainVideoPage.scss";
 function MainVideoPage() {
   const { videoId } = useParams();
   const [videoList, setVideoList] = useState([]);
+  const [videoDetails, setVideoDetails] = useState();
   const [isFetching, setIsFetching] = useState(true);
+
+  const videoIdToLoad = videoId || (videoList[0] && videoList[0].id);
+  const nextVideos = videoList.filter((video) => video.id !== videoIdToLoad);
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -21,22 +25,24 @@ function MainVideoPage() {
     fetchVideos();
   }, []);
 
-  if (isFetching) {
-    return (
-      <p>... Loading your video data ...</p>
-    )
-  }
+  useEffect(() => {
+    const fetchVideoDetails = async () => {
+      const videoDetails = await brainFlixApi.getVideoById(videoIdToLoad);
+      setVideoDetails(videoDetails);
+    };
+    if (videoIdToLoad) {
+      fetchVideoDetails();
+    }
+  }, [videoIdToLoad]);
 
-  const videoIdToLoad = videoId || videoList[0].id;
-  const nextVideos = videoList.filter((video) => video.id !== videoIdToLoad);
+  if (isFetching) {
+    return <p>... Loading your video data ...</p>;
+  }
 
   return (
     <>
       <Header />
-      <Main
-        videoIdToLoad={videoIdToLoad}
-        nextVideos={nextVideos}
-      />
+      <Main videoDetails={videoDetails} nextVideos={nextVideos} />
     </>
   );
 }

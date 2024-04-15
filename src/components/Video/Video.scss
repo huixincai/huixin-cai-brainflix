@@ -2,7 +2,7 @@
 @use "../../styles/partials/colors" as *;
 
 .video {
-  background-color: $brainflix-darkblack;
+  background-color: $videoPlayerBackgroundColor;
   display: flex;
   justify-content: center;
   padding: 0;
